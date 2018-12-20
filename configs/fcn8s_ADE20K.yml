@@ -1,0 +1,25 @@
+model:
+    arch: fcn8s
+data:
+    dataset: ade20k
+    train_split: training
+    val_split: validation
+    img_rows: 512
+    img_cols: 1024
+    path: ~/semseg/pytorch-semseg-master/ADE20K/ADE20K_2016_07_26/images/
+training:
+    train_iters: 35000
+    batch_size: 16
+    val_interval: 500
+    n_workers: 16
+    print_interval: 50
+    optimizer:
+        name: 'sgd'
+        lr: 1.0e-10
+        weight_decay: 0.0005
+        momentum: 0.99
+    loss:
+        name: 'cross_entropy'
+        size_average: False
+    lr_schedule:
+    resume: fcn8s_ADE20K_best_model.pkl

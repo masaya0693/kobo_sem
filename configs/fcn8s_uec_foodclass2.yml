@@ -1,0 +1,25 @@
+model:
+    arch: fcn8s
+data:
+    dataset: uec_foodclass2
+    train_split: train
+    val_split: test
+    img_rows: 512
+    img_cols: 512
+    path: /home0/y2017/t1710401/semseg/pytorch-semseg-master/
+training:
+    train_iters: 10000
+    batch_size: 1
+    val_interval: 2000
+    n_workers: 32
+    print_interval: 50
+    optimizer:
+        name: 'sgd'
+        lr: 1.0e-5
+        weight_decay: 0.0005
+        momentum: 0.99
+    loss:
+        name: 'cross_entropy'
+        size_average: True
+    lr_schedule:
+    resume: fcn8s_uec_foodclass2_best_model.pkl
